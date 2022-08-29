@@ -9,7 +9,7 @@ This installation follows the security best practice to host the Identity server
 
 ## Prepare the Installation
 
-Deployment on AWS EKS has the following prerequisites:
+Deployment on Azure AKS has the following prerequisites:
 * [Azure subscription](https://azure.microsoft.com/en-in/free/) 
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) installed and configured.
 * [Helm](https://helm.sh/)
@@ -31,37 +31,37 @@ All of the services are running privately in the Azure kubernetes service and ex
 
  1. Clone the repository
     ```sh
-    git clone git@github.com:curityio/curity-idsvr-aws-eks-demo-installation.git
-    cd curity-idsvr-aws-eks-demo-installation
+    git clone git@github.com:curityio/curity-idsvr-azure-aks-demo-installation.git
+    cd curity-idsvr-azure-aks-demo-installation
     ```
 
 
  2. Configuration
  
-    Cluster options could be configured by modifying `cluster-config/eks-cluster-config.json` file. Please ensure that the region set in the `cluster-config/eks-cluster-config.json` must match the region set for aws cli (~/.aws/config).
+    Cluster options could be configured by modifying `cluster-config/aks-cluster-config.json` file. Please ensure that a Azure resource group is created in advance and updated in the `cluster-config/aks-cluster-config.json` file before proceeding with the installation.
 
 
  3. Install the environment  
     ```sh
-    ./deploy-idsvr-aws-eks.sh --install
+    ./deploy-idsvr-azure-aks.sh --install
     ```   
 
 
 4. Shutdown environment  
     ```sh
-    ./deploy-idsvr-aws-eks.sh --stop
+    ./deploy-idsvr-azure-aks.sh --stop
     ```  
 
 
 5. Start the environment  
     ```sh
-    ./deploy-idsvr-aws-eks.sh --start
+    ./deploy-idsvr-azure-aks.sh --start
     ```  
 
 
 6. Clean up
     ```sh
-    ./deploy-idsvr-aws-eks.sh --delete
+    ./deploy-idsvr-azure-aks.sh --delete
     ```
 
 
@@ -75,19 +75,19 @@ All of the services are running privately in the Azure kubernetes service and ex
 
 
     ```sh
-      ./deploy-idsvr-aws-eks.sh -h
-      Usage: manage-environment.sh [-h | --help] [-i | --install]  [-d | --delete]
+      ./deploy-idsvr-azure-aks.sh -h
+     Usage: deploy-idsvr-azure-aks.sh [-h | --help] [-i | --install] [--stop] [--start] [-d | --delete]
 
       ** DESCRIPTION **
-      This script can be used to manage a eks cluster and Curity identity server installation.
+      This script can be used to manage an aks cluster and Curity identity server installation.
 
       OPTIONS
 
       --help      show this help message and exit
-      --install   creates eks cluster & deploys Curity identity server along with other components
+      --install   creates aks cluster & deploys Curity identity server along with other components
       --start     starts the environment   
       --stop      shuts down the environment
-      --delete    deletes the eks k8s cluster & identity server deployment
+      --delete    deletes the aks k8s cluster & identity server deployment
     ```
    
 
@@ -95,13 +95,13 @@ All of the services are running privately in the Azure kubernetes service and ex
 
 | Service             | URL                                                           | Purpose                                                         |
 | --------------------|:------------------------------------------------------------- | ----------------------------------------------------------------|
-| ADMIN UI            | https://admin.example.eks/admin                               | Curity Administration console                                   |
-| OIDC METADATA       | https://login.example.eks/~/.well-known/openid-configuration  | Curity OIDC metadata discovery endpoint                         |
-| EXAMPLE API         | https://api.example.eks/echo                                  | API endpoint protected by phantom-token flow                    |
+| ADMIN UI            | https://admin.example.aks/admin                               | Curity Administration console                                   |
+| OIDC METADATA       | https://login.example.aks/~/.well-known/openid-configuration  | Curity OIDC metadata discovery endpoint                         |
+| EXAMPLE API         | https://api.example.aks/echo                                  | API endpoint protected by phantom-token flow                    |
 
 
 
-For a detailed step by step installation instructions, please refer to [Installing the Curity Identity Server in AWS EKS](https://curity.io/resources/learn/kubernetes-aws-eks-idsvr-deployment) article.
+For a detailed step by step installation instructions, please refer to [Installing the Curity Identity Server in Azure AKS](https://curity.io/resources/learn/kubernetes-azure-aks-idsvr-deployment) article.
 
 ## More Information
 

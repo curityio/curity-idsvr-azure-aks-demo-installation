@@ -2,7 +2,7 @@
   "aks-cluster-config": [
     {
       "Name": "resource_group",
-      "Value": "suren-testing",
+      "Value": "add name of the azure resource group",
       "Description": "Name of the resource group"
     },
     {

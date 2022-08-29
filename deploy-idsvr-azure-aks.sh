@@ -44,6 +44,12 @@ pre_requisites_check() {
     exit 1
   fi
 
+  # Check for Azure resource group existence
+  RG_EXISTS=$(az group exists -n $resource_group) || true
+  if ! [[ "$RG_EXISTS" == "true" ]]; then
+      echo "Please make sure that the Azure resource group $resource_group exists in the subscription"
+      exit 1 
+  fi
   # To avoid accidental commit of sensitive data to repositories
   cp ./hooks/pre-commit ./.git/hooks
 
@@ -217,8 +223,8 @@ environment_info() {
 case $1 in
   -i | --install)
     greeting_message
-    pre_requisites_check
     read_cluster_config_file
+    pre_requisites_check
     create_aks_cluster
     deploy_idsvr
     deploy_simple_echo_api
