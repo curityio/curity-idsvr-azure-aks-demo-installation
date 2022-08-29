@@ -1,0 +1,90 @@
+{
+  "aks-cluster-config": [
+    {
+      "Name": "resource_group",
+      "Value": "suren-testing",
+      "Description": "Name of the resource group"
+    },
+    {
+      "Name": "cluster_name",
+      "Value": "curity-example",
+      "Description": "Name of the AKS cluster"
+    },
+    {
+      "Name": "cluster_version",
+      "Value": "1.23.8",
+      "Description": "Version of the k8s cluster"
+    },
+    {
+      "Name": "availability_zones",
+      "Value": "1 2",
+      "Description": "Region's availability zones to span the k8s cluster"
+    },
+    {
+      "Name": "node_vm_size",
+      "Value": "Standard_B2s",
+      "Description": "worker nodes size"
+    },
+    {
+      "Name": "node_count",
+      "Value": "2",
+      "Description": "Number of nodes"
+    },
+    {
+      "Name": "disk_size",
+      "Value": "30",
+      "Description": "worker nodes disk size in GB"
+    },
+    {
+      "Name": "cluster_autoscaler_min_size",
+      "Type": "String",
+      "Value": "2",
+      "Description": "Minimum nodes count used for autoscaler in the range [1, 1000]."
+    },
+    {
+      "Name": "cluster_autoscaler_max_size",
+      "Type": "String",
+      "Value": "4",
+      "Description": "Maximum nodes count used for autoscaler in the range [1, 1000]."
+    }
+  ],
+  "idsvr-config": [
+    {
+      "Name": "admin_hostname",
+      "Value": "admin.example.aks",
+      "Description": "Admin service FQDN"
+    },
+    {
+      "Name": "runtime_hostname", 
+      "Value": "login.example.aks",
+      "Description": "Runtime service FQDN"
+    },
+    {
+      "Name": "num_runtime_nodes", 
+      "Value": "1",
+      "Description": "Number of curity runtime nodes"
+    },
+    {
+      "Name": "idsvr_admin_password",
+      "Value": "Password123",
+      "Description": "password for curity identity server admin console"
+    },
+    {
+      "Name": "idsvr_namespace",
+      "Value": "curity",
+      "Description": "Name of the k8s namespace to deploy curity identity server"
+    },
+    {
+      "Name": "logging_level",
+      "Value": "DEBUG",
+      "Description": "Logging Level for admin and runtime services"
+    }
+  ],
+  "simple-api-config": [
+    {
+      "Name": "api_namespace",
+      "Value": "api",
+      "Description": "Name of the k8s namespace to deploy simple sample api"
+    }    
+  ]
+}
