@@ -25,7 +25,7 @@ If needed, you can also get a free community edition license from the [Curity De
 
 All of the services are running privately in the Azure kubernetes service and exposed via a https load balancer.
 
-![deployment pattern](./docs/deployment-aks.png "deployment pattern")
+![deployment pattern](./docs/azure_aks_deployment.svg "deployment pattern")
 
 ## Installation
 
