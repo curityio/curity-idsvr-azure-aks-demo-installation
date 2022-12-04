@@ -12,6 +12,7 @@ This installation follows the security best practice to host the Identity server
 Deployment on Azure AKS has the following prerequisites:
 * [Azure subscription](https://azure.microsoft.com/en-in/free/) 
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) installed and configured.
+* [terraform](https://www.terraform.io/downloads)
 * [Helm](https://helm.sh/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * [OpenSSL](https://www.openssl.org/)
@@ -38,7 +39,7 @@ All of the services are running privately in the Azure kubernetes service and ex
 
  2. Configuration
  
-    Cluster options could be configured by modifying `cluster-config/aks-cluster-config.json` file. Please ensure that a Azure resource group is created in advance and updated in the `cluster-config/aks-cluster-config.json` file before proceeding with the installation.
+    Cluster options could be configured by modifying `infrastructure-config/infra-config.json` file. Please ensure that a Azure resource group is created in advance and updated in the `infrastructure-config/infra-config.json` file before proceeding with the installation.
 
 
  3. Install the environment  
@@ -70,7 +71,7 @@ All of the services are running privately in the Azure kubernetes service and ex
      kubectl -n curity logs -f -l role=curity-idsvr-runtime
      kubectl -n curity logs -f -l role=curity-idsvr-admin  
      kubectl -n ingress-nginx logs -f -l app.kubernetes.io/component=controller
-     kubectl -n api logs -f -l app=simple-echo-api
+     kubectl -n api logs -f -l app=example-api
     ```
 
 
