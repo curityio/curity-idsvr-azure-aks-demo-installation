@@ -2,12 +2,12 @@
   "aks-cluster-config": [
     {
       "Name": "resource_group_name",
-      "Value": "suren-testing",
+      "Value": "add name of the azure resource group",
       "Description": "Name of the resource group"
     },
     {
       "Name": "cluster_name",
-      "Value": "curity-debug-3",
+      "Value": "curity-example",
       "Description": "Name of the AKS cluster"
     },
     {
