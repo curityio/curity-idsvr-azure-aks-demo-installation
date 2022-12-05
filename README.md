@@ -3,9 +3,9 @@
 [![Quality](https://img.shields.io/badge/quality-experiment-red)](https://curity.io/resources/code-examples/status/)
 [![Availability](https://img.shields.io/badge/availability-source-blue)](https://curity.io/resources/code-examples/status/)
 
-This tutorial will enable any developer or an architect to quickly run the Curity Identity Server and the Phantom Token Pattern in Kubernetes using NGINX Ingress controller in the Azure Kubernetes Service.
+This tutorial enables any developer or an architect to quickly run the Curity Identity Server and the Phantom Token Pattern in Kubernetes using NGINX Ingress controller in the Azure Kubernetes Service.
 
-This installation follows the security best practice to host the Identity server and the APIs behind an Ingress controller acting as an Reverse proxy/API gateway. This will ensure that opaque access tokens are issued to internet clients, while APIs receive JWT access tokens.
+This installation follows the security best practice to host the Curity Identity server and the APIs behind an Ingress controller acting as an reverse proxy/API gateway. This will ensure that opaque access tokens are issued to internet clients, while APIs receive JWT access tokens.
 
 ## Prepare the Installation
 
@@ -24,7 +24,7 @@ If needed, you can also get a free community edition license from the [Curity De
 
 ## Deployment Pattern
 
-All of the services are running privately in the Azure kubernetes service and exposed via a https load balancer.
+All of the services are running privately in the Azure Kubernetes service and exposed via a https load balancer.
 
 ![deployment pattern](./docs/azure_aks_deployment.svg "deployment pattern")
 
