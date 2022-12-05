@@ -45,7 +45,7 @@ pre_requisites_check() {
   # Check for Azure resource group existence
   RG_EXISTS=$(az group exists -n "$resource_group_name") || true
   if ! [[ "$RG_EXISTS" == "true" ]]; then
-    echo "Please make sure that the Azure resource group $resource_group_name exists in the subscription"
+    echo "Please make sure that the Azure resource group '$resource_group_name' defined in the 'infrastructure-config/infra-config.json' exists in the subscription."
     exit 1
   fi
 
@@ -99,8 +99,7 @@ create_aks_cluster_using_az_cli() {
   echo -e "Creating AKS cluster for deployment using azure cli.."
   fill_templates
 
-  #az aks create --name "$cluster_name" --resource-group "$resource_group_name" --kubernetes-version "$cluster_version" --node-osdisk-size "$disk_size" --node-vm-size "$node_vm_size" --node-count "$node_count" --enable-managed-identity --zones "$availability_zones" --enable-cluster-autoscaler --min-count "$cluster_autoscaler_min_size" --max-count "$cluster_autoscaler_max_size"
-  az aks create --name "$cluster_name" --resource-group "$resource_group_name" --node-osdisk-size "$disk_size" --node-vm-size "$node_vm_size" --node-count "$node_count" --enable-managed-identity --zones "$availability_zones" --enable-cluster-autoscaler --min-count "$cluster_autoscaler_min_size" --max-count "$cluster_autoscaler_max_size"
+  az aks create --name "$cluster_name" --resource-group "$resource_group_name" --kubernetes-version "$cluster_version" --node-osdisk-size "$disk_size" --node-vm-size "$node_vm_size" --node-count "$node_count" --enable-managed-identity --zones "$availability_zones" --enable-cluster-autoscaler --min-count "$cluster_autoscaler_min_size" --max-count "$cluster_autoscaler_max_size"
   # Set kubernetes context
   az aks get-credentials --name "$cluster_name" --resource-group "$resource_group_name" --overwrite-existing
   echo -e "\n"

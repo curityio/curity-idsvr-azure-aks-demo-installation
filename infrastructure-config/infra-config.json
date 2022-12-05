@@ -17,7 +17,7 @@
     },
     {
       "Name": "availability_zones",
-      "Value": "1 2",
+      "Value": "2",
       "Description": "Region's availability zones to span the k8s cluster"
     },
     {
