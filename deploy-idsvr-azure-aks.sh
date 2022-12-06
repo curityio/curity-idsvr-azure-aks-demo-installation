@@ -32,7 +32,7 @@ greeting_message() {
 pre_requisites_check() {
   # Check if Azure CLI, kubectl, helm, terraform & jq are installed
   if ! [[ $(helm version) && $(jq --version) && ($(az version) || $(terraform version)) ]]; then
-    echo "Please install azure cli and/or terraform, kubectl, helm & jq to continue with the deployment .."
+    echo "Please install Azure CLI and/or terraform, kubectl, helm & jq to continue with the deployment .."
     exit 1
   fi
 
