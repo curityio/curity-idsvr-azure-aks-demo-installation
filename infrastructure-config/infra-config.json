@@ -1,7 +1,7 @@
 {
   "aks-cluster-config": [
     {
-      "Name": "resource_group",
+      "Name": "resource_group_name",
       "Value": "add name of the azure resource group",
       "Description": "Name of the resource group"
     },
@@ -12,18 +12,23 @@
     },
     {
       "Name": "cluster_version",
-      "Value": "1.23.8",
+      "Value": "1.23.12",
       "Description": "Version of the k8s cluster"
     },
     {
       "Name": "availability_zones",
-      "Value": "1 2",
+      "Value": "2",
       "Description": "Region's availability zones to span the k8s cluster"
     },
     {
       "Name": "node_vm_size",
       "Value": "Standard_B2s",
       "Description": "worker nodes size"
+    },
+    {
+      "Name": "node_pool_name",
+      "Value": "agentpool",
+      "Description": "Name of the node pool"
     },
     {
       "Name": "node_count",
@@ -75,16 +80,21 @@
       "Description": "Name of the k8s namespace to deploy curity identity server"
     },
     {
+      "Name": "ingress_controller_namespace",
+      "Value": "ingress-nginx",
+      "Description": "Name of the k8s namespace to deploy NGINX Ingress Controller"
+    },
+    {
       "Name": "logging_level",
       "Value": "DEBUG",
       "Description": "Logging Level for admin and runtime services"
     }
   ],
-  "simple-api-config": [
+  "example-api-config": [
     {
       "Name": "api_namespace",
       "Value": "api",
-      "Description": "Name of the k8s namespace to deploy simple sample api"
+      "Description": "Name of the k8s namespace to deploy example api"
     }    
   ]
 }

@@ -1,0 +1,22 @@
+# Template variables are filled from infrastructure-config/infra-config.json file
+
+# AKS cluster variables 
+resource_group_name = "${resource_group_name}"
+cluster_name = "${cluster_name}"
+cluster_version= "${cluster_version}"
+node_pool_name = "${node_pool_name}"
+node_count = "${node_count}"
+node_disk_size = "${disk_size}"
+node_group_min_size = "${cluster_autoscaler_min_size}"
+node_group_max_size = "${cluster_autoscaler_max_size}"
+vm_type = "${node_vm_size}"
+
+common_tags = {
+  terraform   = "true"
+  environment = "curity-example-deployment"
+}
+
+# Curity Idsvr,Example API and NGINX Ingress variables 
+idsvr_namespace = "${idsvr_namespace}"
+ingress_controller_namespace = "${ingress_controller_namespace}"
+api_namespace = "${api_namespace}"

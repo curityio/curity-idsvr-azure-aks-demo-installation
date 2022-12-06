@@ -326,16 +326,16 @@
                 </use-pairwise-subject-identifiers>
               </client>
               <client>
-                <id>simple-echo-api</id>
-                <client-name>simple-echo-api</client-name>
-                <description>simple-echo-api</description>
+                <id>example-api</id>
+                <client-name>example-api</client-name>
+                <description>example-api</description>
                 <secret>$5$z8OjAH/v11LglCTm$9dQUbtNL5.52toE4MzNlCzSKpG9eDsb7jIugpdLPzY9</secret>
                 <scope>read</scope>
                 <capabilities>
                   <client-credentials/>
                 </capabilities>
                 <use-pairwise-subject-identifiers>
-                  <sector-identifier>simple-echo-api</sector-identifier>
+                  <sector-identifier>example-api</sector-identifier>
                 </use-pairwise-subject-identifiers>
               </client>
               <client>
