@@ -7,10 +7,10 @@ display_help() {
   echo -e "This script can be used to deploy Curity Identity Server in Azure kubernetes cluster. \n"
   echo -e "OPTIONS \n"
   echo " --help      shows this help message and exit                                                                 "
-  echo " --install   creates an aks cluster & deploys Curity Identity Server along with other components              "
+  echo " --install   creates an AKS cluster & deploys Curity Identity Server along with other components              "
   echo " --start     starts up the environment                                                                        "
   echo " --stop      shuts down the environment                                                                       "
-  echo " --delete    deletes the aks k8s cluster & Curity Identity Server deployment                                  "
+  echo " --delete    deletes the AKS cluster & Curity Identity Server deployment                                  "
 }
 
 greeting_message() {
@@ -30,7 +30,7 @@ greeting_message() {
 }
 
 pre_requisites_check() {
-  # Check if azure cli, kubectl, helm, terraform & jq are installed
+  # Check if Azure CLI, kubectl, helm, terraform & jq are installed
   if ! [[ $(helm version) && $(jq --version) && ($(az version) || $(terraform version)) ]]; then
     echo "Please install azure cli and/or terraform, kubectl, helm & jq to continue with the deployment .."
     exit 1
@@ -79,12 +79,14 @@ determine_aks_cluster_creation_type() {
   echo "|-----------------------------------------------------------------|"
   echo "| [1]  AZURE CLI  => AKS cluster deployment using azure cli       |"
   echo "| [2]  TERRAFORM  => AKS cluster deployment using terraform       |"
+  echo "| [3]  CANCEL                                                     |"
   echo "|-----------------------------------------------------------------|"
 
   read -rp "Please choose the type of deployment [1 or 2] ? : " choiceDeploy
   case "$choiceDeploy" in
   1) create_aks_cluster_using_az_cli ;;
   2) create_aks_cluster_using_terraform ;;
+  3) exit 1 ;;
   *)
     echo "Invalid choice"
     exit 1
@@ -95,6 +97,11 @@ determine_aks_cluster_creation_type() {
 }
 
 create_aks_cluster_using_az_cli() {
+  if ! [ -x "$(command -v az version)" ]; then
+    echo "** You need to have Azure cli installed to use that option **"
+    determine_aks_cluster_creation_type
+  fi
+
   generate_self_signed_certificates
   echo -e "Creating AKS cluster for deployment using azure cli.."
   fill_templates
@@ -107,6 +114,10 @@ create_aks_cluster_using_az_cli() {
 }
 
 create_aks_cluster_using_terraform() {
+  if ! [ -x "$(command -v terraform version)" ]; then
+    echo "** You need to have terraform installed to use that option **"
+    determine_aks_cluster_creation_type
+  fi
   generate_self_signed_certificates
   echo -e "Creating AKS cluster for deployment using terraform..."
   fill_templates
@@ -180,6 +191,7 @@ deploy_example_api() {
 
   kubectl apply -f example-api-config/example-api-ingress-nginx.yaml -n "${api_namespace}"
   kubectl apply -f example-api-config/example-api-k8s-deployment.yaml -n "${api_namespace}"
+  kubectl apply -f example-api-config/example-api-k8s-service.yaml -n "${api_namespace}"
 
   echo -e "\n"
   deploy_ingress_controller

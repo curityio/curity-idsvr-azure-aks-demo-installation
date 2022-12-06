@@ -5,14 +5,14 @@
 
 This tutorial enables any developer or an architect to quickly run the Curity Identity Server and the Phantom Token Pattern in Kubernetes using NGINX Ingress controller in the Azure Kubernetes Service.
 
-This installation follows the security best practice to host the Curity Identity server and the APIs behind an Ingress controller acting as an reverse proxy/API gateway. This will ensure that opaque access tokens are issued to internet clients, while APIs receive JWT access tokens.
+This installation follows the security best practice to host the Curity Identity Server and the APIs behind an Ingress controller acting as an reverse proxy/API gateway. This will ensure that opaque access tokens are issued to internet clients, while APIs receive JWT access tokens.
 
 ## Prepare the Installation
 
 Deployment on Azure AKS has the following prerequisites:
 * [Azure subscription](https://azure.microsoft.com/en-in/free/) 
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) installed and configured.
-* [terraform](https://www.terraform.io/downloads)
+* [Terraform](https://www.terraform.io/downloads)
 * [Helm](https://helm.sh/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * [OpenSSL](https://www.openssl.org/)
